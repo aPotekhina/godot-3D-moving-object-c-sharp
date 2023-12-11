@@ -33,7 +33,7 @@ public partial class player : RigidBody3D
         input.X = Input.GetAxis(MOVE_LEFT, MOVE_RIGHT);
         input.Z = Input.GetAxis(MOVE_FORWARD, MOVE_BACKFORWARD);
 
-        ApplyCentralForce((float)delta * 1200 * input);
+        ApplyCentralForce((float)delta * 1200 * input * _twistPivot.Basis.Transposed());
 
         if (Input.IsActionJustPressed(UI_CANCEL))
         {
